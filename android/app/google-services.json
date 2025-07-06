@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "724789372028",
+    "firebase_url": "https://agenda-ja-app-default-rtdb.firebaseio.com",
+    "project_id": "agenda-ja-app",
+    "storage_bucket": "agenda-ja-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724789372028:android:57743c7ddf2813527415f9",
+        "android_client_info": {
+          "package_name": "br.com.agendajaapp.agenda_ja_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB30R-7u-hznAlHllpj9EKLy3y4_BRXImc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724789372028:android:40effecd356112017415f9",
+        "android_client_info": {
+          "package_name": "br.com.ctoapps.agendapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB30R-7u-hznAlHllpj9EKLy3y4_BRXImc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

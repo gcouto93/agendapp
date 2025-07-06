@@ -1,0 +1,16 @@
+import 'package:agenda_ja_app/app/modules/auth/register/register_page.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+class RegisterModule extends Module {
+  @override
+  void binds(Injector i) {
+    // TODO: implement binds
+    super.binds(i);
+  }
+
+  @override
+  void routes(RouteManager r) {
+    super.routes(r);
+    r.child(Modular.initialRoute, child: (c) => RegisterPage());
+  }
+}
