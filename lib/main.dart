@@ -1,3 +1,4 @@
+import 'package:agenda_ja_app/app/core/application_config.dart';
 import 'package:agenda_ja_app/app/modules/app_module.dart';
 import 'package:agenda_ja_app/app/modules/app_widget.dart';
 import 'package:agenda_ja_app/config/ProviderConfig.dart';
@@ -8,19 +9,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 
 import 'app/modules/auth/login/login_page.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
+  await ApplicationConfig().configureApp();
   runApp(ModularApp(module: AppModule(), child: const AppWidget()));
 }
 

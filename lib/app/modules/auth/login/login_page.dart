@@ -1,3 +1,4 @@
+import 'package:agenda_ja_app/app/core/helpers/environments.dart';
 import 'package:agenda_ja_app/app/core/ui/extensions/size_screen_extension.dart';
 import 'package:agenda_ja_app/app/core/ui/extensions/theme_extensions.dart';
 import 'package:agenda_ja_app/app/core/ui/icons/agendaap_icons.dart';
@@ -37,6 +38,7 @@ class _LoginPageState extends State<LoginPage> {
         padding: EdgeInsets.all(15),
         child: Column(
           children: [
+            Text(Environments.param('base_url') ?? ' '),
             SizedBox(
               height: 25.h,
             ),
