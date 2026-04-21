@@ -29,7 +29,7 @@ class SnackMessage {
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         elevation: 15,
-        content: Text('Sucesso: ${msg}'),
+        content: Text('Sucesso: $msg'),
         duration: const Duration(seconds: 2),
         action: SnackBarAction(
           label: 'OK',
@@ -41,12 +41,12 @@ class SnackMessage {
     );
   }
 
-  Error(String _title, [int duration = 2]) {
+  Error(String title, [int duration = 2]) {
     BuildContext context = MyApp.navigatorKey.currentContext!;
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         elevation: 15,
-        content: Text(_title),
+        content: Text(title),
         duration: Duration(seconds: duration),
         action: SnackBarAction(
           label: 'OK',
@@ -80,7 +80,7 @@ class SnackMessage {
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         elevation: 15,
-        content: Text('Aviso: ${msg}'),
+        content: Text('Aviso: $msg'),
         duration: const Duration(seconds: 2),
         action: SnackBarAction(
           label: 'OK',

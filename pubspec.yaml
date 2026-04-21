@@ -27,6 +27,10 @@ dependencies:
   flutter_dotenv: ^5.2.1
   firebase_remote_config: ^5.4.7
   firebase_analytics: ^11.5.2
+  logger: ^2.6.1
+  flutter_secure_storage: ^9.2.4
+  shared_preferences: ^2.5.3
+  validatorless: ^1.2.4
 
 dev_dependencies:
   flutter_test:

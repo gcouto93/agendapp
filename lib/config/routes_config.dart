@@ -1,4 +1,3 @@
-import 'package:agenda_ja_app/main.dart';
 import 'package:agenda_ja_app/pages/home_page.dart';
 import 'package:agenda_ja_app/app/modules/auth/login/login_page.dart';
 import 'package:agenda_ja_app/utility/app_routes.dart';

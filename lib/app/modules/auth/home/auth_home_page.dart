@@ -1,7 +1,5 @@
-import 'package:agenda_ja_app/app/core/ui/extensions/theme_extensions.dart';
 import 'package:agenda_ja_app/app/models/user_model.dart';
 import 'package:agenda_ja_app/app/modules/core/auth/auth_store.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

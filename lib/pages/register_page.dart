@@ -19,51 +19,45 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastro'),
+        title: const Text('Cadastro'),
       ),
       body: Container(
         alignment: Alignment.center,
         child: SingleChildScrollView(
           child: Center(
-            child: Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Seu nome',
-                          ),
-                          controller: _nameRegisterController,
-                        ),
-                        const SizedBox(height: 16),
-                        TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Seu email',
-                          ),
-                          controller: _emailRegisterController,
-                        ),
-                        const SizedBox(height: 16),
-                        TextField(
-                          decoration: InputDecoration(
-                            labelText: 'Senha',
-                          ),
-                          controller: _passwordRegisterController,
-                        ),
-                        const SizedBox(height: 16),
-                        ElevatedButton(
-                          onPressed: () {
-                            registerButton();
-                          },
-                          child: Text('Confirmar'),
-                        )
-                      ],
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  TextField(
+                    decoration: const InputDecoration(
+                      labelText: 'Seu nome',
                     ),
+                    controller: _nameRegisterController,
                   ),
-                )
-              ],
+                  const SizedBox(height: 16),
+                  TextField(
+                    decoration: const InputDecoration(
+                      labelText: 'Seu email',
+                    ),
+                    controller: _emailRegisterController,
+                  ),
+                  const SizedBox(height: 16),
+                  TextField(
+                    decoration: const InputDecoration(
+                      labelText: 'Senha',
+                    ),
+                    controller: _passwordRegisterController,
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      registerButton();
+                    },
+                    child: const Text('Confirmar'),
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -72,9 +66,6 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void registerButton() {
-    authService.registerUser(
-        name: _nameRegisterController.text,
-        email: _emailRegisterController.text,
-        password: _passwordRegisterController.text);
+    authService.registerUser(name: _nameRegisterController.text, email: _emailRegisterController.text, password: _passwordRegisterController.text);
   }
 }

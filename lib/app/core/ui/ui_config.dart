@@ -13,15 +13,15 @@ class UiConfig {
         primarySwatch: AppColors.primarySwatch,
         scaffoldBackgroundColor: AppColors.sand,
         hintColor: AppColors.secondary,
-        appBarTheme: AppBarTheme(
-          iconTheme: const IconThemeData(color: Colors.white),
-          titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(color: Colors.white),
+          titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
           backgroundColor: AppColors.secondary,
         ),
-        colorScheme: ColorScheme.light(
+        colorScheme: const ColorScheme.light(
           primary: AppColors.primary,
           secondary: AppColors.secondary,
-          background: AppColors.background,
+          surface: AppColors.background,
           error: AppColors.error,
           inversePrimary: AppColors.inversePrimary,
         ),

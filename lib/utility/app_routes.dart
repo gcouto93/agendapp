@@ -1,5 +1,3 @@
-import 'package:agenda_ja_app/main.dart';
-
 class AppRoutes {
   // static const Home = '/';
   static const RouteScreen = '/';

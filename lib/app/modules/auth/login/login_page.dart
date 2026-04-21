@@ -1,14 +1,22 @@
 import 'package:agenda_ja_app/app/core/helpers/environments.dart';
+import 'package:agenda_ja_app/app/core/local_storage/local_storage.dart';
+import 'package:agenda_ja_app/app/core/logger/app_logger.dart';
 import 'package:agenda_ja_app/app/core/ui/extensions/size_screen_extension.dart';
 import 'package:agenda_ja_app/app/core/ui/extensions/theme_extensions.dart';
 import 'package:agenda_ja_app/app/core/ui/icons/agendaap_icons.dart';
 import 'package:agenda_ja_app/app/core/ui/widgets/agenda_ja_textform_field.dart';
 import 'package:agenda_ja_app/app/core/ui/widgets/agendaap_button_default.dart';
+import 'package:agenda_ja_app/app/core/ui/widgets/loader.dart';
+import 'package:agenda_ja_app/app/core/ui/widgets/messages.dart';
 import 'package:agenda_ja_app/app/core/ui/widgets/rounded_button_with_icon.dart';
+import 'package:agenda_ja_app/app/modules/auth/login/login_controller.dart';
 import 'package:agenda_ja_app/layout/snack_message.dart';
 import 'package:agenda_ja_app/services/auth_service.dart';
 import 'package:agenda_ja_app/utility/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:provider/provider.dart';
+import 'package:validatorless/validatorless.dart';
 
 import '../../../../pages/register_page.dart';
 
@@ -28,14 +36,32 @@ class _LoginPageState extends State<LoginPage> {
   bool _isSecurePassWord = true;
   final _formKey = GlobalKey<FormState>();
 
-  AuthService _authService = AuthService();
+  final AuthService _authService = AuthService();
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      syncData();
+    });
+  }
+
+  void syncData() async {
+    await Modular.get<LocalSecureStorage>().write('testeLocalSecure', 'testeLocalSecureValue 000000123');
+    Future.delayed(const Duration(seconds: 2), () async {
+      print(' -------------------------- TESTE LOCAL STORAGE INIT SATE LOGIN PAGE --------------------------');
+      print(await Modular.get<LocalSecureStorage>().read('testeLocalSecure'));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    // var log = Modular.get<AppLogger>();
+    // log.error('LoginPage build called ------> TESTE', ' Erro teste', StackTrace.current);
+
     return Scaffold(
         body: SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Column(
           children: [
             Text(Environments.param('base_url') ?? ' '),
@@ -54,11 +80,11 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               height: 8.h,
             ),
-            _OrSeparator(),
-            SizedBox(
+            const _OrSeparator(),
+            const SizedBox(
               height: 8,
             ),
-            _LoginRegisterButtons()
+            const _LoginRegisterButtons()
           ],
         ),
       ),
@@ -82,13 +108,13 @@ class _LoginPageState extends State<LoginPage> {
             _isSecurePassWord = !_isSecurePassWord;
           });
         },
-        icon: _isSecurePassWord ? Icon(Icons.visibility) : Icon(Icons.visibility_off),
+        icon: _isSecurePassWord ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
         color: Colors.grey);
   }
 }
 
 class _OrSeparator extends StatelessWidget {
-  const _OrSeparator({super.key});
+  const _OrSeparator();
 
   @override
   Widget build(BuildContext context) {

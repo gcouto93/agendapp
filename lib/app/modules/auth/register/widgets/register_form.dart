@@ -1,13 +1,14 @@
 part of '../register_page.dart';
 
 class _RegisterForm extends StatefulWidget {
-  const _RegisterForm({super.key});
+  const _RegisterForm();
 
   @override
   State<_RegisterForm> createState() => _RegisterFormState();
 }
 
 class _RegisterFormState extends State<_RegisterForm> {
+  final RegisterController controller = Modular.get<RegisterController>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
@@ -31,58 +32,42 @@ class _RegisterFormState extends State<_RegisterForm> {
             AgendaJaTextformField(
               label: 'E-mail',
               controller: _emailController,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Por favor, insira um e-mail';
-                }
-                final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-                if (!emailRegex.hasMatch(value)) {
-                  return 'Por favor, insira um e-mail válido';
-                }
-                return null;
-              },
+              validator: Validatorless.multiple([
+                Validatorless.required('E-mail obrigatório'),
+                Validatorless.email('E-mail inválido'),
+              ]),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             AgendaJaTextformField(
               label: 'Senha',
               controller: _passwordController,
               obscureText: true,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Por favor, insira uma senha';
-                }
-                if (value.length < 6) {
-                  return 'A senha deve ter pelo menos 6 caracteres';
-                }
-                return null;
-              },
+              validator: Validatorless.multiple([
+                Validatorless.required('Senha obrigatória'),
+                Validatorless.min(6, 'A senha deve ter pelo menos 6 caracteres'),
+              ]),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             AgendaJaTextformField(
               label: 'Confirmar senha',
               controller: _confirmPasswordController,
               obscureText: true,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Por favor, confirme a senha';
-                }
-                if (value != _passwordController.text) {
-                  return 'As senhas não coincidem';
-                }
-                return null;
-              },
+              validator: Validatorless.multiple([
+                Validatorless.required('Confirmação de senha obrigatória'),
+                Validatorless.compare(_passwordController, 'As senhas não coincidem'),
+              ]),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             _isLoading
-                ? CircularProgressIndicator()
+                ? const CircularProgressIndicator()
                 : AgendaapButtonDefault(
-                    onPressed: () => _registerUser(),
+                    onPressed: _registerUser,
                     label: 'Cadastrar',
                   )
           ],
@@ -91,9 +76,19 @@ class _RegisterFormState extends State<_RegisterForm> {
 
   Future<void> _registerUser() async {
     // Validar o formulário
-    if (!_formKey.currentState!.validate()) {
+    final formValid = _formKey.currentState!.validate();
+    if (!formValid) {
       return;
     }
+
+    if (formValid) {
+      controller.register(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+      return;
+    }
+    return;
 
     setState(() {
       _isLoading = true;

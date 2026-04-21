@@ -13,6 +13,6 @@ class HomeModule extends Module {
   void routes(RouteManager r) {
     // TODO: implement routes
     super.routes(r);
-    r.child(Modular.initialRoute, child: (_) => HomePage());
+    r.child(Modular.initialRoute, child: (_) => const HomePage());
   }
 }

@@ -2,8 +2,11 @@ import 'package:agenda_ja_app/app/core/ui/extensions/size_screen_extension.dart'
 import 'package:agenda_ja_app/app/core/ui/extensions/theme_extensions.dart';
 import 'package:agenda_ja_app/app/core/ui/widgets/agenda_ja_textform_field.dart';
 import 'package:agenda_ja_app/app/core/ui/widgets/agendaap_button_default.dart';
+import 'package:agenda_ja_app/app/modules/auth/register/register_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:validatorless/validatorless.dart';
 
 part 'widgets/register_form.dart';
 
@@ -22,7 +25,7 @@ class RegisterPage extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Center(
@@ -33,7 +36,7 @@ class RegisterPage extends StatelessWidget {
                   color: context.primaryColorDark,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               const _RegisterForm()

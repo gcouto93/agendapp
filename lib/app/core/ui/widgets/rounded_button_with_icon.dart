@@ -17,7 +17,7 @@ class RoundedButtonWithIcon extends StatelessWidget {
       child: Container(
         width: width,
         height: 45.h,
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(30),
@@ -33,8 +33,8 @@ class RoundedButtonWithIcon extends StatelessWidget {
                 size: 20.w,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0),
               child: VerticalDivider(color: Colors.white, thickness: 2),
             ),
             SizedBox(

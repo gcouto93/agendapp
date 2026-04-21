@@ -12,24 +12,23 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: const Text('Home'),
       ),
       drawer: Drawer(
-        child:
-        ListView(children:  [
+        child: ListView(children: [
           ListTile(
-            leading: Icon(Icons.logout),
+            leading: const Icon(Icons.logout),
             title: const Text('Deslogar'),
-            onTap: ()async{
+            onTap: () async {
               await AuthService().logoutUser();
               Navigator.pushNamed(context, AppRoutes.Login);
             },
           )
         ]),
       ),
-      body: Center(child: Text('home')),
+      body: const Center(child: Text('home')),
     );
   }
 }

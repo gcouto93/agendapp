@@ -1,10 +1,8 @@
-import 'dart:ffi';
-
 import 'package:agenda_ja_app/app/core/ui/extensions/theme_extensions.dart';
 import 'package:flutter/material.dart';
 
 class AgendaapButtonDefault extends StatelessWidget {
-  final VoidCallback? onPressed;
+  final VoidCallback onPressed;
   final double borderRadius;
   final String label;
   final Color? color;
@@ -33,7 +31,7 @@ class AgendaapButtonDefault extends StatelessWidget {
       width: width,
       padding: EdgeInsets.all(padding),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),

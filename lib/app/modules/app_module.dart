@@ -1,9 +1,6 @@
 import 'package:agenda_ja_app/app/modules/auth/auth_module.dart';
-import 'package:agenda_ja_app/app/modules/auth/register/register_module.dart';
 import 'package:agenda_ja_app/app/modules/core/core_module.dart';
 import 'package:agenda_ja_app/app/modules/home/home_module.dart';
-import 'package:agenda_ja_app/pages/home_page.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AppModule extends Module {
